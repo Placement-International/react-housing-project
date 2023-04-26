@@ -49,7 +49,7 @@ const handleChange = (event) => {
 
   return (
     <div>
-      <h1>Sign Up with your email and password</h1>
+      <h1>Sign Up with</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="">Name</label>
         <input name='displayName' value={displayName} onChange={handleChange} required type="text" />
