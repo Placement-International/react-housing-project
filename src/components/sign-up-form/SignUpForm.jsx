@@ -29,7 +29,6 @@ const handleSubmit = async (event) => {
   
   try {
       const {user} = await createAuthUserWithEmailAndPassword(email, password);
-      console.log(user)
      await createUserDocumentFromAuth(user, {displayName})
       resetFormFields();
     } catch (error) {
