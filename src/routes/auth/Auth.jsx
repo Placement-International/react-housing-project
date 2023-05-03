@@ -9,30 +9,23 @@ import { signOutUser } from '../../utils/firebase/firebase.utils';
 const Auth = () => {
 
     const { currentUser } = useContext(UserContext);
-
+    if (!currentUser) {
     return (
         <div>
             <div>
             <h1>
                 Sign Up/Sign In Page
             </h1>
-            {/* <button onClick={logGoogleUser}>
-                Sign in with Google Popup
-            </button> */}
-            {
-                currentUser ? (
-                    <div>
-                        <h2>You are currently logged in!</h2>
-                        <button onClick={signOutUser}>Sign Out</button>
-                    </div>)
-                    : (
-                     <span>You are not logged in</span>
-                )
-            }
             <SignUpForm></SignUpForm>
             <SignInForm></SignInForm>
             </div>
         </div>
+    )} return (
+        <div>
+        <h2>You are currently logged in!</h2>
+        <a href="/">Go Home</a>
+        {/* <button onClick={signOutUser}>Sign Out</button> */}
+    </div>
     )
 }
 export default Auth;

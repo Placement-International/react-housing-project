@@ -27,7 +27,14 @@ provider.setCustomParameters({
 });
 
 export const auth = getAuth();
-export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
+export const signInWithGooglePopup = () => {
+  try {
+    signInWithPopup(auth, provider);
+  } catch (error) {
+    console.error(error);
+  }
+
+}
 
 export const db = getFirestore();
 export const createUserDocumentFromAuth = async (
