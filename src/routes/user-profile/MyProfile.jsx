@@ -20,6 +20,10 @@ function MyProfile() {
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1200px-Default_pfp.svg.png" alt="Description of the image" style={{ width: '25%', height: 'auto' }}/>
         <p>My email: {currentUser.email}</p>
         <p>You created this account: {currentUser.metadata.creationTime}</p>
+        <div>
+          <p>My posts</p>
+          <p>My favourites</p>
+        </div>
       </div>
     </Layout>
   )

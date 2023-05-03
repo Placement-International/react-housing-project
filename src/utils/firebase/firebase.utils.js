@@ -83,9 +83,8 @@ export const signOutUser = () => signOut(auth);
 export const onAuthStateChangedListener = (callback) =>
   onAuthStateChanged(auth, callback);
 
-//test - visualize the properties
-
-export const testingDoc = async() => {
+//get all the properties - usefull for admin, will have to changed to verified for the public
+export const allProperties = async() => {
   const propertiesRef = collection(db, 'properties');
   const snapshot = await getDocs(propertiesRef);
 
@@ -98,4 +97,9 @@ export const testingDoc = async() => {
   console.log(properties)
   return properties;
   };
+
+  //see only the properties that I posted and their status
+  export const myProperties = async() ={
+
+  }
 

@@ -1,13 +1,13 @@
 import React from 'react'
 import { useState, useEffect} from 'react';
-import { testingDoc } from '../../utils/firebase/firebase.utils'
+import { allProperties } from '../../utils/firebase/firebase.utils'
 
 function AllProperties() {
   const [properties, setProperties] = useState([]);
 
   useEffect(() => {
     async function fetchProperties() {
-      const propertiesData = await testingDoc();
+      const propertiesData = await allProperties();
       setProperties(propertiesData);
     }
     fetchProperties();
@@ -19,9 +19,10 @@ function AllProperties() {
       <ul>
         {properties.map(property => (
           <li key={property.id}>
-            <p>{property.title}</p>
-            <p>{property.description}</p>
-            <p>{property.price}</p>
+            <p>Author: {property.authorId}</p>
+            <p>Title: {property.title}</p>
+            <p>Description: {property.description}</p>
+            <p>Price: {property.price}</p>
           </li>
         ))}
       </ul>
