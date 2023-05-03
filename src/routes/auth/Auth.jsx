@@ -9,7 +9,6 @@ import { signOutUser } from '../../utils/firebase/firebase.utils';
 const Auth = () => {
 
     const { currentUser } = useContext(UserContext);
-    console.log(currentUser.uid)
 
     return (
         <div>
