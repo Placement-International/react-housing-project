@@ -8,7 +8,7 @@ import {
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
-import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
+import { getFirestore, doc, getDoc, setDoc, collection, query, where, getDocs } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCor1_K9LOKPBD0FqsgjFK5tfKbmakHGzU",
@@ -82,3 +82,20 @@ export const signOutUser = () => signOut(auth);
 
 export const onAuthStateChangedListener = (callback) =>
   onAuthStateChanged(auth, callback);
+
+//test - visualize the properties
+
+export const testingDoc = async() => {
+  const propertiesRef = collection(db, 'properties');
+  const snapshot = await getDocs(propertiesRef);
+
+  const properties = snapshot.docs.map(doc => {
+    return {
+      id: doc.id,
+      ...doc.data()
+    }
+  });
+  console.log(properties)
+  return properties;
+  };
+

@@ -8,9 +8,8 @@ function MyProfile() {
   if (!currentUser) {
     // User is not logged in, show a message or redirect to login page
     return (
-      <Layout>
-          <h1>No user logged in!</h1>
-      </Layout>
+          <h1>Loading</h1>
+
     );
   }
   return (
