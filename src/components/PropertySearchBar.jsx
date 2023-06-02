@@ -4,7 +4,7 @@ import {default as locationSuggestions} from '../utils/data';
 
 function PropertySearchBar({onSearchLocation}) {
     const [searchProperty, setSearchProperty] = useState("");
-    const [suggestions, setSuggestions] = useState("")
+    const [suggestions, setSuggestions] = useState([])
 
     //this function is called when the user types into the search bar
     //it recieves "event" which contains the value entered by the user
@@ -39,7 +39,8 @@ function PropertySearchBar({onSearchLocation}) {
 
     const handleSubmit = (event) => {
       event.preventDefault();
-      onSearchLocation(searchProperty);  
+      onSearchLocation(searchProperty);
+      //setSearchProperty("")  
       console.log("clicked")
     }
   return (
