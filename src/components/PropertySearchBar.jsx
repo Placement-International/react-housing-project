@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {default as locationSuggestions} from '../utils/data';
 
 
-function PropertySearchBar() {
+function PropertySearchBar({onSearchLocation}) {
     const [searchProperty, setSearchProperty] = useState("");
     const [suggestions, setSuggestions] = useState("")
 
@@ -37,12 +37,14 @@ function PropertySearchBar() {
         setSuggestions([]);
       };
 
-    const handleSubmit = () => {
-        console.log("clicked")
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      onSearchLocation(searchProperty);  
+      console.log("clicked")
     }
   return (
     <div className="relative">
-    <form className="flex" onSubmit={handleSubmit}>
+    <form className="flex">
       <input
         type="text"
         placeholder="Search properties"
@@ -51,7 +53,8 @@ function PropertySearchBar() {
         onChange={handleInputChange}
       />
       <button
-        type="submit"
+        //type="submit"
+        onClick={handleSubmit}
         className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-r"
       >
         Search

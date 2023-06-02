@@ -8,7 +8,7 @@ import {
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
-import { getFirestore, doc, getDoc, setDoc, collection, query, where, getDocs } from "firebase/firestore";
+import { getFirestore, doc, getDoc, setDoc, collection, where, getDocs, query} from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCor1_K9LOKPBD0FqsgjFK5tfKbmakHGzU",
@@ -98,4 +98,21 @@ export const allProperties = async() => {
   return properties;
   };
 
+//get properties based only on location
+export const searchPropertiesByLocation = async(location) => {
+  const propertiesRef = collection(db, 'properties');
+  const q = query(
+    propertiesRef,
+    where('location', '==', location)
+  );
+  const snapshot = await getDocs(q);
 
+  const properties = snapshot.docs.map(doc => {
+    return {
+      id: doc.id,
+      ...doc.data()
+    }
+  });
+  console.log(properties)
+  return properties;
+  };
