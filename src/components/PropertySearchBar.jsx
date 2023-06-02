@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {default as locationSuggestions} from '../utils/data';
 
+
 function PropertySearchBar() {
     const [searchProperty, setSearchProperty] = useState("");
     const [suggestions, setSuggestions] = useState("")
