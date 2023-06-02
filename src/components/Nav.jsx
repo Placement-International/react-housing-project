@@ -21,24 +21,48 @@ function Nav() {
     </nav>
   )} return (
     <nav>
-      <ul>
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
-          <a href="/my-profile">My Profile</a>
-        </li>
-        <li>
-          <a href="/post-property">Post a Property</a>
-        </li>
-        <li>
-          <a href="/properties">See Properties</a>
-        </li>
-        <li>
-        <button onClick={signOutUser}>Sign Out</button>
-        </li>
-      </ul>
-    </nav>
+    <ul className="flex justify-end items-center">
+      <li className="mr-4">
+        <a href="/" className="py-2 px-4 hover:bg-gray-700">
+          Home
+        </a>
+      </li>
+      <li className="mr-4">
+        <a
+          href="/my-profile"
+          className="py-2 px-4 hover:bg-gray-700"
+        >
+          My Profile
+        </a>
+      </li>
+      <li className="mr-4">
+        <a
+          href="/post-property"
+          className="py-2 px-4 hover:bg-gray-700"
+        >
+          Post a Property
+        </a>
+      </li>
+      <li className="mr-4">
+        <a
+          href="/properties"
+          className="py-2 px-4 hover:bg-gray-700"
+        >
+          See Properties
+        </a>
+      </li>
+      <li>
+      <div className="flex py-2 px-4">
+            <button
+              onClick={signOutUser}
+              className="hover:bg-gray-700"
+            >
+              Sign Out
+            </button>
+          </div>
+      </li>
+    </ul>
+  </nav>
   )
 }
 

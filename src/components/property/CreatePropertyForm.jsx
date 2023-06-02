@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
-import { db } from '../../utils/firebase/firebase.utils';
-import { doc, setDoc } from 'firebase/firestore';
-import { UserContext } from '../../context/user.context';
-import { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from "react-router-dom";
+import { doc, setDoc } from 'firebase/firestore';
+import { db } from '../../utils/firebase/firebase.utils';
+import { UserContext } from '../../context/user.context';
 
 const CreatePropertyForm = () => {
   
-  let navigate = useNavigate(); 
+  const navigate = useNavigate(); 
   const routeChange = () =>{ 
     let path = '/'; 
     navigate(path);
@@ -77,7 +76,7 @@ const CreatePropertyForm = () => {
       
 {/* Building Characteristics */}
 
-      <label>
+      <label >
         Title:
         <input
           type="text"

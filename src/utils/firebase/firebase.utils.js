@@ -98,8 +98,4 @@ export const allProperties = async() => {
   return properties;
   };
 
-  //see only the properties that I posted and their status
-  export const myProperties = async() ={
-
-  }
 
